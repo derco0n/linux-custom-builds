@@ -1,0 +1,13 @@
+1. Download Kernel
+download-kernel.sh
+
+2. CD to kerneldir
+
+3. Make Config
+make-config.sh 
+
+4. Compile
+build-kernel.sh
+
+5. Install Kernel
+install-kernels.sh
