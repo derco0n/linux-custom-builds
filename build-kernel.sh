@@ -9,7 +9,7 @@ export CXXFLAGS="$CFLAGS"
 echo "Start Kernel build..."
 echo "#####################"
 echo ""
-fakeroot make-kpkg  --initrd -j3 --append-to-version=-coonzmod-eeepc kernel_image kernel_headers
+fakeroot make-kpkg  --initrd -j9 --append-to-version=-coonzmod-eeepc kernel_image kernel_headers
 
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
