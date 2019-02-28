@@ -1,5 +1,5 @@
 Needed:
-sudo apt-get install build-essential kernel-package libncurses5-dev fakeroot wget bzip2
+sudo apt-get install build-essential kernel-package libncurses5-dev fakeroot wget bzip2 libelf-dev -y
 
 
 1. Download Kernel
