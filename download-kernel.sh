@@ -19,8 +19,8 @@ KERNELDIR="$KDIR1.$KDIR2.$KDIR3"
 echo "Kerneldir: $KERNELDIR ..."
 
 echo Linking Scripts into $KERNELDIR ...
-ln -s ./build-kernel.sh ./$KERNELDIR/build-kernel.sh
-ln -s ./make-config.sh ./$KERNELDIR/make-config.sh
-ln -s ./install-kernels.sh ./$KERNELDIR/install-kernels.sh
+ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel.sh
+ln -s ../make-config.sh ./$KERNELDIR/make-config.sh
+ln -s ../install-kernels.sh ./$KERNELDIR/install-kernels.sh
 
 
