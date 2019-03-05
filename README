@@ -1,3 +1,7 @@
+Needed:
+sudo apt-get install build-essential kernel-package libncurses5-dev fakeroot wget bzip2 libelf-dev libssl-dev -y
+
+
 1. Download Kernel
 download-kernel.sh
 
