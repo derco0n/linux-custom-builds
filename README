@@ -1,6 +1,21 @@
+This is a bunch of build-script for the linux-kernel with some config files optimized for ASUS EEEPC 1001PG (and may be some others)
+	- Optimized for Intel Atom (instead of generic_x86)
+	- Removed some uneeded stuff
+		- AMD CPU-Features
+		- NVIDIA and AMD Graphics support
+		- RAID Stuff
+		- NVME (This technology did not even exist back then)
+		- misc
+	- Changed default CPU governor to "CONSERVATIVE"
+	
+
+Building tested under Linux-Mint 19.
+
+
 Needed:
 sudo apt-get install build-essential kernel-package libncurses5-dev fakeroot wget bzip2 libelf-dev libssl-dev -y
 
+Steps:
 
 1. Download Kernel
 download-kernel.sh
