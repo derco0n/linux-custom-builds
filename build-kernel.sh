@@ -5,6 +5,8 @@ export CONCURRENCY_LEVEL=2
 export CHOST="x86_64-pc-Linux-gnu" 
 export CFLAGS="-march=native -O2 -pipe" 
 export CXXFLAGS="$CFLAGS"
+export CCACHE_DIR="/media/co0n/7a59f274-2a0c-4233-a4bf-03233b45a7e9/ccachedir"
+
 
 echo "Start Kernel build..."
 echo "#####################"
