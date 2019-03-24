@@ -1,11 +1,9 @@
-This is a bunch of build-script for the linux-kernel with some config files optimized for ASUS EEEPC 1001PG (and may be some others)
-	- Optimized for Intel Atom (instead of generic_x86)
+This is a bunch of build-script for the linux-kernel with some config files optimized for Alienware-17R4 (and may be some others)
+	- Optimized for Intel Core2Duo/Xeon (instead of generic_x86)
 	- Removed some uneeded stuff
 		- AMD CPU-Features
-		- NVIDIA and AMD Graphics support
-		- RAID Stuff
-		- NVME (This technology did not even exist back then)
-		- misc
+		- AMD Graphics support
+		- Firewire
 	- Changed default CPU governor to "CONSERVATIVE"
 	
 
