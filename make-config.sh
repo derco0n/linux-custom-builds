@@ -3,7 +3,7 @@
 make mrproper
 make clean
 
-cp ../confs/.config_eeepc-slim5 ./.config
+cp ../confs/.config-aw17 ./.config
 
 make oldconfig
 
