@@ -8,3 +8,5 @@ cp ../confs/.config-aw17 ./.config
 make oldconfig
 
 make menuconfig
+
+make prepare
