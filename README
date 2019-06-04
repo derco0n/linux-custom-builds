@@ -17,6 +17,48 @@ sudo apt-get install build-essential kernel-package libncurses5-dev fakeroot wge
 
 Steps:
 
+Optional - Setup ccache to speedup future builds:
+
+Install ccache:
+    apt install ccache -y
+
+Make sure all compiler-symlinks are there (several symlinks e.g. gcc, g++ pointing to ccache) allowing it to work transparently without needing to change any makefile
+    ls -l /usr/lib/ccache
+
+setup your ccache config
+    nano ~/.ccache/ccache.conf
+        max_size=15.0G (or something else)
+        cache_dir=/path/to/your/ccache-directory
+
+put ccache to your $PATH-Variable. make sure ist before the other paths, as linux tries the first binary it can find (when firing gcc or g++ or another binary)
+    nano ~/.bashrc
+        Add the following line:
+            export PATH="/usr/lib/ccache:$PATH"
+
+check your configuration with:
+    ccache -s
+        It should like this:
+            cache directory                     /path/to/your/ccache-directory
+            primary config                      /root/.ccache/ccache.conf
+            secondary config      (readonly)    /etc/ccache.conf
+            stats zero time                     Tue Jun  4 16:20:28 2019
+            cache hit (direct)                     0
+            cache hit (preprocessed)               0
+            cache miss                          4531
+            cache hit rate                      0.00 %
+            called for link                       27
+            called for preprocessing             353
+            unsupported code directive             4
+            no input file                       6050
+            cleanups performed                     0
+            files in cache                     13585
+            cache size                           1.6 GB
+            max cache size                      15.0 GB
+
+
+Then:
+
+
 1. Download Kernel
 download-kernel.sh
 
