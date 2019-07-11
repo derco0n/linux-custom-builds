@@ -22,6 +22,7 @@ echo "Kerneldir: $KERNELDIR ..."
 
 echo Linking Scripts into $KERNELDIR ...
 ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel.sh
+ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel_cross_x86.sh
 ln -s ../make-config.sh ./$KERNELDIR/make-config.sh
 ln -s ../install-kernels.sh ./$KERNELDIR/install-kernels.sh
 
