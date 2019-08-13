@@ -3,8 +3,8 @@
 make mrproper
 make clean
 
-cp ../confs/.config-aw17 ./.config # Normal-config
-#cp ../confs/.config-aw17_stripped_modules ./.config # config with stripped modules
+#cp ../confs/.config-aw17 ./.config # Normal-config
+cp ../confs/.config-aw17_stripped_modules ./.config # config with stripped modules
 
 make oldconfig
 

@@ -5,7 +5,12 @@ THREADS=9
 
 export CHOST="x86_64-pc-Linux-gnu" #https://wiki.gentoo.org/wiki/CHOST #Targetarchitecture
 #export CFLAGS="-march=native -O2 -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel
-export CFLAGS="-march=skylake -O2 -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
+#export CFLAGS="-march=skylake -O2 -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
+export CFLAGS="-march=skylake -O3 -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
+# -O1 performs only optimisations that don't effect the compile time much.
+# -O2 performs optimisations without trading space for speed
+# -O3 performs maximal speed optimisation
+# -Os tries to make the executable as small as possible
 export CXXFLAGS="$CFLAGS"
 
 
