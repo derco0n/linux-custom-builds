@@ -1,6 +1,14 @@
+<<<<<<< HEAD
+ #!/bin/bash
+
+DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
+KERNEL="linux-5.2.9.tar.xz"  # Change Archive as needed...
+#KERNEL="linux-5.2.tar.xz"  # Change Archive as needed...
+=======
 DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
 #KERNEL="linux-5.1.9.tar.xz"  # Change Archive as needed...
 KERNEL="linux-5.2.9.tar.xz"  # Change Archive as needed...
+>>>>>>> origin/master
 
 wget $DOWNLOADPATH$KERNEL
 echo Unpacking $KERNEL
