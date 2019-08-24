@@ -1,8 +1,14 @@
+<<<<<<< HEAD
  #!/bin/bash
 
 DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
 KERNEL="linux-5.2.9.tar.xz"  # Change Archive as needed...
 #KERNEL="linux-5.2.tar.xz"  # Change Archive as needed...
+=======
+DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
+#KERNEL="linux-5.1.9.tar.xz"  # Change Archive as needed...
+KERNEL="linux-5.2.9.tar.xz"  # Change Archive as needed...
+>>>>>>> origin/master
 
 wget $DOWNLOADPATH$KERNEL
 echo Unpacking $KERNEL
@@ -22,7 +28,6 @@ echo "Kerneldir: $KERNELDIR ..."
 
 echo Linking Scripts into $KERNELDIR ...
 ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel.sh
+#ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel_cross_x86.sh
 ln -s ../make-config.sh ./$KERNELDIR/make-config.sh
 ln -s ../install-kernels.sh ./$KERNELDIR/install-kernels.sh
-
-
