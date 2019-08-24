@@ -1,7 +1,6 @@
 #!/bin/bash
 #cp /boot/config-`uname -r` ./.config
 
-<<<<<<< HEAD
 case "$1" in
   aw17r4)
 	echo "$1: Generating config for Dell Alienware 17R4"
@@ -27,19 +26,13 @@ case "$1" in
 	exit -1
 	;;
 esac
-=======
-cp ../confs/.config_eeepc-strippedmodules ./.config
-#cp ../confs/.config_eeepc-slim5 ./.config
->>>>>>> origin/master
 
 make oldconfig
 
 #make localmodconfig #Just include currently loaded modules
 
-<<<<<<< HEAD
 echo "Loading menuconfig in case you want to change something..."
-=======
->>>>>>> origin/master
+
 make menuconfig
 
 make prepare
