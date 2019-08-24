@@ -1,12 +1,27 @@
-This is a bunch of build-script for the linux-kernel with some config files optimized for Alienware-17R4 (and may be some others)
-	- Optimized for Intel Core2Duo/Xeon (instead of generic_x86)
-	- Removed some uneeded stuff
-		- AMD CPU-Features
-		- AMD Graphics support
-		- Firewire
-	- Changed default CPU governor to "CONSERVATIVE"
-	
+This is a bunch of build-scripts for the linux-kernel with some config files optimized for these devices:
 
+	-ASUS EEEPC 1001PG (and may be some others)
+		- Optimized for Intel Atom (instead of generic_x86)
+		- Removed some uneeded stuff
+			- AMD CPU-Features
+			- NVIDIA and AMD Graphics support
+			- RAID Stuff
+			- NVME (This technology did not even exist back then)
+			- misc
+			- a lot of drivers which arent in the system
+		- Changed default CPU governor to "CONSERVATIVE"
+		- Optimized CFLAGS to build for Intel Atom CPUs
+
+	- Dell Alienware-17R4 (and may be some similars)
+		- Optimized for Intel Core2Duo/Xeon (instead of generic_x86)
+		- Removed some uneeded stuff
+			- AMD CPU-Features
+			- AMD Graphics support
+			- Firewire
+			- a lot of drivers which arent in the system
+		- Changed default CPU governor to "CONSERVATIVE"
+		- Optimized CFLAGS to build for Intel Skylake CPUs
+	
 Building tested under Linux-Mint 19.
 
 
@@ -62,10 +77,14 @@ download-kernel.sh
 2. CD to kerneldir
 
 3. Make Config
-make-config.sh 
+make-config.sh <DEVICETARGET>
 
 4. Compile
-build-kernel.sh
+build-kernel.sh <DEVICETARGET>
 
 5. Install Kernel
-install-kernels.sh
+install-kernels.sh <DEVICETARGET>
+
+	Possible <DEVICETARGET>'s are:
+		- aw17r4
+		- eeepc

@@ -1,2 +1,4 @@
 linux-*
 olddebs
+*.deb
+*.tar.xz
