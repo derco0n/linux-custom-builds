@@ -55,16 +55,9 @@ case "$1" in
 esac
 
 echo "CFLAGS are: $CFLAGS"
+
 # Configuring Compiler
 ######################
-
-export CHOST="x86_64-pc-Linux-gnu" #https://wiki.gentoo.org/wiki/CHOST #Targetarchitecture
-=======
-THREADS=1
-
-export CHOST="x86_64-pc-Linux-gnu" #https://wiki.gentoo.org/wiki/CHOST #Targetarchitecture
-#export CFLAGS="-march=native -O2 -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel
-export CFLAGS="-march=atom -mtune=atom -O3 -pipe" #GCC4.5 contains tuning flags for Intel Atom. O3 optimized for speed
 
 export CXXFLAGS="$CFLAGS"
 
