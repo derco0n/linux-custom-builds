@@ -70,11 +70,8 @@ check your configuration with:
 
 
 Then:
-
-<<<<<<< HEAD
 =======
 
->>>>>>> origin/master
 1. Download Kernel
 download-kernel.sh
 
