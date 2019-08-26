@@ -31,8 +31,12 @@ make oldconfig
 
 #make localmodconfig #Just include currently loaded modules
 
-echo "Loading menuconfig in case you want to change something..."
 
-make menuconfig
+if [ "$2" != "auto" ]; then
+	echo "Loading menuconfig in case you want to change something..."
+	make menuconfig
+else
+	echo "$2 is given. omitting menuconfig..."
+fi
 
 make prepare

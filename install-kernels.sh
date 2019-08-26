@@ -2,11 +2,11 @@
 case "$1" in
   aw17r4)
         echo "$1: Installing Kernel and Headers for Dell Alienware 17R4"
-	TARGET="czmod-skylake"
+	#TARGET="czmod-skylake"
         ;;
   eeepc)
         echo "$1: Installing Kernel and Headers for Asus EEEPC"
-	TARGET="czmod-atom"
+	#TARGET="czmod-atom"
         ;;
   *)
         echo "$1: Unknown Targe. Aborting!"
@@ -16,7 +16,8 @@ case "$1" in
         ;;
 esac
 
-sudo dpkg -i ../linux-image-*$TARGET*.deb ../linux-headers-*$TARGET*.deb
+sudo dpkg -i ../linux-image-*$1*.deb ../linux-headers-*$1*.deb
 sudo update-grub
-mv ../linux-image-*$TARGET*.deb ../olddebs/
-mv ../linux-headers-*$TARGET*.deb ../olddebs/
+mkdir -p ../olddebs
+mv ../linux-image-*$1*.deb ../olddebs
+mv ../linux-headers-*$1*.deb ../olddebs

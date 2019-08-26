@@ -24,3 +24,4 @@ ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel.sh
 #ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel_cross_x86.sh
 ln -s ../make-config.sh ./$KERNELDIR/make-config.sh
 ln -s ../install-kernels.sh ./$KERNELDIR/install-kernels.sh
+ln -s ../make-all.sh ./$KERNELDIR/make-all.sh

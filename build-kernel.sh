@@ -38,12 +38,12 @@ case "$1" in
         echo "$1: Compiling for Dell Alienware 17R4"
 	#export CFLAGS="-march=native $OPTIMIZATION -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
 	export CFLAGS="-march=skylake $OPTIMIZATION -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
-	APPENDTEXT="-czm0d-skylake"
+	APPENDTEXT="-czm0d-skylake-$1"
         ;;
   eeepc)
         echo "$1: Compiling for Asus EEEPC"
 	export CFLAGS="-march=atom -mtune=atom $OPTIMIZATION -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
-	APPENDTEXT="-czm0d-atom"
+	APPENDTEXT="-czm0d-atom-$1"
         ;;
   *)
         echo "$1: Unknown Target. Aborting!"
