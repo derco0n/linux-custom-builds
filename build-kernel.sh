@@ -45,10 +45,15 @@ case "$1" in
 	export CFLAGS="-march=atom -mtune=atom $OPTIMIZATION -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
 	APPENDTEXT="-czm0d-atom-$1"
         ;;
+  winpad12)
+        echo "$1: Compiling for Odys Winpad 12"
+	export CFLAGS="-march=atom -mtune=atom -fexcess-precision=fast $OPTIMIZATION -pipe" #https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel #AW17R4 has a Skylake CPU
+	APPENDTEXT="-czm0d-atom-$1"
+        ;;
   *)
         echo "$1: Unknown Target. Aborting!"
         echo "Usage: build-kernel.sh <target> [optimization]"
-        echo "Possible targets:  \"aw17r4\", \"eeepc\""
+        echo "Possible targets:  \"aw17r4\", \"eeepc\", \"winpad12\""
         echo "Possible optimizations:  \"-O2 \(optimize for space, default is -03 [speed]\)\""
         exit -1
         ;;

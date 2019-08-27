@@ -8,6 +8,10 @@ case "$1" in
         echo "$1: Installing Kernel and Headers for Asus EEEPC"
 	#TARGET="czmod-atom"
         ;;
+  winpad12)
+        echo "$1: Installing Kernel and Headers for Odys Winpad 12"
+	#TARGET="czmod-atom"
+        ;;
   *)
         echo "$1: Unknown Targe. Aborting!"
         echo "Usage: install-kernels.sh <target>"

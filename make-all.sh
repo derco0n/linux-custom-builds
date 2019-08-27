@@ -3,7 +3,7 @@
 # Builds kernels for all Targets
 
 # Targets
-declare -a targets=("aw17r4" "eeepc") # Targets-Array
+declare -a targets=("aw17r4" "eeepc" "winpad12") # Targets-Array
 
 ## now loop through the above array
 for i in "${targets[@]}"
