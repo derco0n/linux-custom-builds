@@ -89,3 +89,4 @@ install-kernels.sh <DEVICETARGET>
 	Possible <DEVICETARGET>'s are:
 		- aw17r4
 		- eeepc
+		- winpad12
