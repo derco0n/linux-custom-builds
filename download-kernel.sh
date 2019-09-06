@@ -1,15 +1,35 @@
 #!/bin/bash
+#FUNCTIONS:
+determine_newstablekernel () {
+	# Checks Kernel.org for the newest stable source
+	version=$(wget --output-document - --quiet https://www.kernel.org/ | grep -A 1 "latest_link")
+	version=${version##*.tar.xz\">}
+	version=${version%</a>}
+	echo $version
+}
 
+determine_versiondots () {
+	# Checks a String (Kernel-Version) for dots an counts them
+	#echo $1 # DEBUG
+	VERSIONDOTS=$(echo $1 | tr -cd '.' | wc -c)
+	return $VERSIONDOTS
+	}
+
+
+#MAIN:
 DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
-KERNELV="linux-5.2.9"  # Change Archive as needed...
+
+KERNELV="linux-$(determine_newstablekernel)"  # Change Archive as needed...
+#KERNELV="linux-5.2.11"  # Change Archive as needed...
 
 KERNELTAR="$KERNELV.tar"
 KERNEL="$KERNELTAR.xz"
 SIGN="$KERNELV.tar.sign" # Kernel Signature
 
+echo "Downloading Source for $KERBELV from kernel.org ..."
 wget $DOWNLOADPATH$KERNEL
+
 echo "Unpacking $KERNEL"
-#tar -Jxf $KERNEL
 unxz $KERNEL
 
 echo "Downloading GPG-Signatures for Signature-check"
@@ -53,18 +73,30 @@ tar -xf $KERNELTAR
 
 echo "Kernel: $KERNEL"
 
-KDIR1=`echo "$KERNEL" | cut -f 1 -d '.'`
-KDIR2=`echo "$KERNEL" | cut -f 2 -d '.'`
-KDIR3=`echo "$KERNEL" | cut -f 3 -d '.'`
+# Define Kerneldir by cutting of dots
+determine_versiondots $KERNELV
+DOTSTOCUT=$(($? + 1))
 
-KERNELDIR="$KDIR1.$KDIR2.$KDIR3"
-#KERNELDIR="$KDIR1.$KDIR2"
+KERNELDIR=""
+
+for ((i=1; i<=$DOTSTOCUT; i++)); do
+	KDIR=`echo "$KERNEL" | cut -f $i -d '.'`
+	if [ $i -gt 1 ]; then
+		KERNELDIR="$KERNELDIR.$KDIR"
+	else
+		KERNELDIR="$KDIR"
+	fi
+done
 
 echo "Kerneldir: $KERNELDIR ..."
 
-echo Linking Scripts into $KERNELDIR ...
+echo "Linking Scripts into $KERNELDIR ..."
 ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel.sh
-#ln -s ../build-kernel.sh ./$KERNELDIR/build-kernel_cross_x86.sh
 ln -s ../make-config.sh ./$KERNELDIR/make-config.sh
 ln -s ../install-kernels.sh ./$KERNELDIR/install-kernels.sh
 ln -s ../make-all.sh ./$KERNELDIR/make-all.sh
+
+echo "All done. You may now \"cd $KERNELDIR\" and run the scripts to build your kernel(s)."
+echo ""
+
+exit 0
