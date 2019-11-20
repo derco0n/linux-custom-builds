@@ -27,10 +27,18 @@ case "$1" in
 
 	cp ../confs/.config-winpad12-strippedmodules ./.config
 	;;
+  probook650g3)
+	echo "$1: Generating config for HP ProBook 650 G3"
+	echo "Cleaning old config"
+	make mrproper
+	make clean
+
+	cp ../confs/.config_probook650g3-strippedmodules ./.config
+	;;
   *)
 	echo "$1: Unknown Config. Aborting!"
 	echo "Usage: make-config.sh <target>"
-	echo "Possible targets:  \"aw17r4\", \"eeepc\", \"winpad12\""
+	echo "Possible targets:  \"aw17r4\", \"eeepc\", \"winpad12\", \"probook650g3\""
 	exit -1
 	;;
 esac
