@@ -35,9 +35,15 @@ case "$1" in
 	;;
 esac
 
-make oldconfig
-
 #make localmodconfig #Just include currently loaded modules
+
+if [ "$2" == "upgrade" ]; then
+	echo "Upgrading config from previous kernelversion..."
+	make olddefconfig
+else
+	echo "Using existing config without versionupgrade..."
+	make oldconfig
+fi
 
 
 if [ "$2" != "auto" ]; then
