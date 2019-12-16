@@ -87,6 +87,7 @@ build-kernel.sh <DEVICETARGET>
 install-kernels.sh <DEVICETARGET>
 
 	Possible <DEVICETARGET>'s are:
-		- aw17r4
-		- eeepc
-		- winpad12
+		- aw17r4	(Dell Alienware 17 R4)
+		- eeepc		(Asus EEEPC)
+		- winpad12	(Odys Winpad 12")
+		- probook650g3	(HP Probook 650 G3)
