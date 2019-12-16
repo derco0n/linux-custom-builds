@@ -12,10 +12,14 @@ case "$1" in
         echo "$1: Installing Kernel and Headers for Odys Winpad 12"
 	TARGET="czm0d-atom-winpad12"
         ;;
+  probook650g3)
+        echo "$1: Installing Kernel and Headers for HP Probook 650 G3"
+	TARGET="czm0d-kabylake-probook650g3"
+        ;;
   *)
         echo "$1: Unknown Targe. Aborting!"
         echo "Usage: install-kernels.sh <target>"
-        echo "Possible targets:  \"aw17r4\", \"eeepc\", \"winpad12\""
+        echo "Possible targets:  \"aw17r4\", \"eeepc\", \"winpad12\", \"probook650g3\""
         exit -1
         ;;
 esac
