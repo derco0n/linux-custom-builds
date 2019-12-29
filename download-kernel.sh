@@ -1,10 +1,18 @@
 #!/bin/bash
+DOWNLOADPATH=""
+
 #FUNCTIONS:
 determine_newstablekernel () {
 	# Checks Kernel.org for the newest stable source
 	version=$(wget --output-document - --quiet https://www.kernel.org/ | grep -A 1 "latest_link")
 	version=${version##*.tar.xz\">}
 	version=${version%</a>}
+	echo $version
+}
+
+determine_latestlongtermkernel () {
+	# Checks Kernel.org for the latest longterm source
+	version=$(wget --output-document - --quiet https://www.kernel.org/ | grep -A 1 "longterm" | grep "strong" | cut -d">" -f 3 | cut -d"<" -f1 | head -n 1)
 	echo $version
 }
 
@@ -17,15 +25,33 @@ determine_versiondots () {
 
 
 #MAIN:
-#DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/"
-DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
-
+# Default ist newest kernel
+echo "Choosing latest stable kernel..."
+DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/" # Todo: Should find a better way for this in the future
 KERNELV="linux-$(determine_newstablekernel)"  # Change Archive as needed...
-#KERNELV="linux-4.19.73"  # Change Archive as needed...
+
+if ! [ -z "$1" ]; then
+	#Argument is given
+	if [[ "$1" == "longterm" ]]; then
+		# longterm choosen instead
+		echo "Choosing latest longterm kernel..."
+		DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/" # Todo: Should do this better in the future
+		KERNELV="linux-$(determine_latestlongtermkernel)"  # Change Archive as needed...
+	fi
+fi
+
+
+#KERNELV="linux-4.19.73"  # Change Archive as needed to override previous value...
 
 KERNELTAR="$KERNELV.tar"
 KERNEL="$KERNELTAR.xz"
 SIGN="$KERNELV.tar.sign" # Kernel Signature
+
+echo "Removing old .tar(.gz/.xz/.sign)-files"
+rm ./*.tar
+rm ./*.tar.xz*
+rm ./*.tar.gz*
+rm ./*.tar.sign*
 
 echo "Downloading Source for $KERBELV from kernel.org ..."
 wget $DOWNLOADPATH$KERNEL
