@@ -91,7 +91,7 @@ Then:
 =======
 
 1. Download Kernel
-download-kernel.sh [longterm]
+download-kernel.sh [longterm|longterm2]
 
 2. CD to kerneldir
 

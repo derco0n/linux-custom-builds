@@ -16,6 +16,12 @@ determine_latestlongtermkernel () {
 	echo $version
 }
 
+determine_previouslongtermkernel () {
+	# Checks Kernel.org for the latest longterm source
+	version=$(wget --output-document - --quiet https://www.kernel.org/ | grep -A 1 "longterm" | grep "strong" | cut -d">" -f 3 | cut -d"<" -f1 | head -n 2 | tail -n 1)
+	echo $version
+}
+
 determine_versiondots () {
 	# Checks a String (Kernel-Version) for dots an counts them
 	#echo $1 # DEBUG
@@ -37,6 +43,11 @@ if ! [ -z "$1" ]; then
 		echo "Choosing latest longterm kernel..."
 		DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/" # Todo: Should do this better in the future
 		KERNELV="linux-$(determine_latestlongtermkernel)"  # Change Archive as needed...
+	elif [[ "$1" == "longterm2" ]]; then
+                # longterm choosen instead
+                echo "Choosing prevoius longterm kernel..."
+                DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/" # Todo: Should do this better in the future
+                KERNELV="linux-$(determine_previouslongtermkernel)"  # Change Archive as needed...
 	fi
 fi
 
