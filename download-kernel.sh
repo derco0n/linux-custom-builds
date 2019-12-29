@@ -48,12 +48,12 @@ KERNEL="$KERNELTAR.xz"
 SIGN="$KERNELV.tar.sign" # Kernel Signature
 
 echo "Removing old .tar(.gz/.xz/.sign)-files"
-rm ./*.tar
-rm ./*.tar.xz*
-rm ./*.tar.gz*
-rm ./*.tar.sign*
+rm ./*.tar -f
+rm ./*.tar.xz* -f
+rm ./*.tar.gz* -f
+rm ./*.tar.sign* -f
 
-echo "Downloading Source for $KERBELV from kernel.org ..."
+echo "Downloading Source for $KERNELV from kernel.org ..."
 wget $DOWNLOADPATH$KERNEL
 
 echo "Unpacking $KERNEL"
