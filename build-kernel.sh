@@ -3,7 +3,7 @@
 # Determine Threads based on logical CPUs
 #########################################
 
-#THREADS=9
+#THREADS=1
 LOGICALCPUS=$(cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l)
 THREADS=$(($LOGICALCPUS+1))
 
