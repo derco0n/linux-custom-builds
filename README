@@ -104,7 +104,6 @@ build-kernel.sh <DEVICETARGET>
 5. Install Kernel
 install-kernels.sh <DEVICETARGET>
 
-
 Possible <DEVICETARGET>'s are:
 	- aw17r4	(Dell Alienware 17 R4)
 	- eeepc		(Asus EEEPC)
