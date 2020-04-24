@@ -1,4 +1,10 @@
 #!/bin/bash
+# Determine Threads used for decompression based on logical CPUs
+################################################################
+LOGICALCPUS=$(cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l)
+THREADS=$(($LOGICALCPUS+1))
+
+
 DOWNLOADPATH=""
 
 #FUNCTIONS:
@@ -68,7 +74,7 @@ echo "Downloading Source for $KERNELV from kernel.org ..."
 wget $DOWNLOADPATH$KERNEL
 
 echo "Unpacking $KERNEL"
-unxz $KERNEL
+xz --decompress --threads=$THREADS $KERNEL
 
 echo "Downloading GPG-Signatures for Signature-check"
 gpg --locate-keys torvalds@kernel.org gregkh@kernel.org
