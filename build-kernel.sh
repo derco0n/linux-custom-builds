@@ -78,8 +78,8 @@ echo "$Yellow #####################"
 echo ""
 echo "$Yellow Build started at $(date)"
 echo ""
-#fakeroot make-kpkg -j $THREADS --verbose --initrd --arch-in-name --append-to-version=-czm0d kernel_image kernel_headers
 make-kpkg -j $THREADS --verbose --initrd --arch-in-name --append-to-version=$APPENDTEXT kernel_image kernel_headers
+#fakeroot make-kpkg -j $THREADS --verbose --initrd --arch-in-name --append-to-version=$APPENDTEXT kernel_image kernel_headers
 
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
