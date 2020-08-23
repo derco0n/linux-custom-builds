@@ -1,7 +1,4 @@
 linux-*
 olddebs
-<<<<<<< HEAD
 *.deb
 *.tar.xz
-=======
->>>>>>> origin/master

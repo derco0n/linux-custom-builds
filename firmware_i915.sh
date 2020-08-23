@@ -9,7 +9,7 @@ mkdir -p ./download
 mkdir -p /lib/firmware/i915/
 wget http://anduin.linuxfromscratch.org/sources/linux-firmware/i915/ -O ./download/firmware.list
 for fle in $(cat ./download/firmware.list | grep "li" | grep ".bin" | cut -d"\"" -f2); do
-	wget http://anduin.linuxfromscratch.org/sources/linux-firmware/i915/$fle -o ./download/$fle
+	wget http://anduin.linuxfromscratch.org/sources/linux-firmware/i915/$fle -O ./download/$fle
 	cp ./download/$fle /lib/firmware/i915/
 	echo $fle
 done
