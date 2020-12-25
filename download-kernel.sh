@@ -47,7 +47,7 @@ if ! [ -z "$1" ]; then
 	if [[ "$1" == "longterm" ]]; then
 		# longterm choosen instead
 		echo "Choosing latest longterm kernel..."
-		DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/" # Todo: Should do this better in the future
+		DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/" # Todo: Should do this better in the future
 		KERNELV="linux-$(determine_latestlongtermkernel)"  # Change Archive as needed...
 	elif [[ "$1" == "longterm2" ]]; then
                 # longterm choosen instead
