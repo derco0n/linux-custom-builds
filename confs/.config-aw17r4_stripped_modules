@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.10.2 Kernel Configuration
+# Linux/x86_64 5.10.2 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
 CONFIG_CC_IS_GCC=y
@@ -21,7 +21,7 @@ CONFIG_THREAD_INFO_IN_TASK=y
 #
 CONFIG_INIT_ENV_ARG_LIMIT=32
 # CONFIG_COMPILE_TEST is not set
-CONFIG_LOCALVERSION="-stripped-modules-mptcp"
+CONFIG_LOCALVERSION="-stripped-modules-mptcp-anbox"
 # CONFIG_LOCALVERSION_AUTO is not set
 CONFIG_BUILD_SALT=""
 CONFIG_HAVE_KERNEL_GZIP=y
@@ -5502,6 +5502,8 @@ CONFIG_STAGING_MEDIA=y
 #
 # Android
 #
+CONFIG_ASHMEM=y
+# CONFIG_ION is not set
 # end of Android
 
 # CONFIG_LTE_GDM724X is not set
@@ -6270,7 +6272,11 @@ CONFIG_RAS_CEC=y
 #
 # Android
 #
-# CONFIG_ANDROID is not set
+CONFIG_ANDROID=y
+CONFIG_ANDROID_BINDER_IPC=y
+CONFIG_ANDROID_BINDERFS=y
+CONFIG_ANDROID_BINDER_DEVICES="binder,hwbinder,vndbinder"
+# CONFIG_ANDROID_BINDER_IPC_SELFTEST is not set
 # end of Android
 
 CONFIG_LIBNVDIMM=y
