@@ -8,7 +8,6 @@ LOGICALCPUS=$(cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l)
 THREADS=$(($LOGICALCPUS+1))
 
 echo "Found $LOGICALCPUS logical CPUs. "
-echo "Compiling with $THREADS Threads."
 
 # Determine compiler settings
 #############################
@@ -18,11 +17,22 @@ echo "Compiling with $THREADS Threads."
 # -O2 performs optimizations without trading space for speed
 # -O3 performs maximal speed optimization
 # -Os tries to make the executable as small as possible
+if [ -n $3 ]; then
+	# Set max. Threads
+	echo "Threadcount $3 specified."
+	THREADS=$3
+fi
+
+echo "Compiling with $THREADS Threads."
 
 case "$2" in
   O2)
-	echo "$2: Compiler-optimization-flag is set."
+	echo "$2: Compiler-optimization-flag is set to $2."
 	OPTIMIZATION="-O2"
+	;;
+  O3)
+	echo "$2: Compiler-optimization-flag is set to $2."
+	OPTIMIZATION="-O3"
 	;;
   *)
 	echo "No Compiler-optimization-flag is set. Using default..."
@@ -78,8 +88,8 @@ echo "$Yellow #####################"
 echo ""
 echo "$Yellow Build started at $(date)"
 echo ""
+#fakeroot make-kpkg -j $THREADS --verbose --initrd --arch-in-name --append-to-version=-czm0d kernel_image kernel_headers
 make-kpkg -j $THREADS --verbose --initrd --arch-in-name --append-to-version=$APPENDTEXT kernel_image kernel_headers
-#fakeroot make-kpkg -j $THREADS --verbose --initrd --arch-in-name --append-to-version=$APPENDTEXT kernel_image kernel_headers
 
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
