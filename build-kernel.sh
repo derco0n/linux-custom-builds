@@ -17,11 +17,11 @@ echo "Found $LOGICALCPUS logical CPUs. "
 # -O2 performs optimizations without trading space for speed
 # -O3 performs maximal speed optimization
 # -Os tries to make the executable as small as possible
-if [ -n $3 ]; then
-	# Set max. Threads
-	echo "Threadcount $3 specified."
-	THREADS=$3
-fi
+#if [ -n $3 ]; then
+#	# Set max. Threads
+#	echo "Threadcount $3 specified."
+#	THREADS=$3
+#fi
 
 echo "Compiling with $THREADS Threads."
 
