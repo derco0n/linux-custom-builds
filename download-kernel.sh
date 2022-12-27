@@ -39,7 +39,7 @@ determine_versiondots () {
 #MAIN:
 # Default ist newest kernel
 echo "Choosing latest stable kernel..."
-DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/" # Todo: Should find a better way for this in the future
+DOWNLOADPATH="https://mirrors.edge.kernel.org/pub/linux/kernel/v6.x/" # Todo: Should find a better way for this in the future
 KERNELV="linux-$(determine_newstablekernel)"  # Change Archive as needed...
 
 if ! [ -z "$1" ]; then
