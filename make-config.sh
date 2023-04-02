@@ -8,7 +8,8 @@ case "$1" in
 	make mrproper
 	make clean
 
-	cp ../confs/.config-aw17r4_stripped_modules ./.config # config with stripped modules
+	cp ../confs/.config-aw17r4_mostly_generic ./.config # config aw17r4
+#	cp ../confs/.config-aw17r4_stripped_modules ./.config # config with stripped modules
 	;;
   eeepc)
 	echo "$1: Generating config for Asus EEEPC"

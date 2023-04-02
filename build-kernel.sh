@@ -36,7 +36,7 @@ case "$2" in
 	;;
   *)
 	echo "No Compiler-optimization-flag is set. Using default..."
-	OPTIMIZATION="-O3"
+	OPTIMIZATION="-O2"
 	;;
 esac
 
